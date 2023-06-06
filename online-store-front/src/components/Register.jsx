@@ -58,18 +58,26 @@ const Register = () => {
   };
 
   const handleRegister = async () => {
-    if(repeatPassword === password){
-    const user = new RegisterUserForm(username,email,password,firstName,lastName,dateOfBirth,address,role,profilePhoto)
-    const ret = await RegisterUser(user);
-    if (ret) {
-      navigate("/login");
-    }
-    }
-    else{
-      alert('Passwords do not match.')
+    if (repeatPassword === password) {
+      const user = new RegisterUserForm(
+        username,
+        email,
+        password,
+        firstName,
+        lastName,
+        dateOfBirth,
+        address,
+        role,
+        profilePhoto
+      );
+      const ret = await RegisterUser(user);
+      if (ret) {
+        navigate("/login");
+      }
+    } else {
+      alert("Passwords do not match.");
       return;
     }
-
   };
 
   return (
@@ -112,13 +120,13 @@ const Register = () => {
         <input type="email" value={email} onChange={handleEmailChange} />
       </div>
       <div>
-      <label htmlFor="dateInput">Birth date:</label>
-      <input
-        type="date"
-        id="dateInput"
-        value={dateOfBirth}
-        onChange={handleDateOfBirthChange}
-      />
+        <label htmlFor="dateInput">Birth date:</label>
+        <input
+          type="date"
+          id="dateInput"
+          value={dateOfBirth}
+          onChange={handleDateOfBirthChange}
+        />
       </div>
       <div>
         <label>Address:</label>

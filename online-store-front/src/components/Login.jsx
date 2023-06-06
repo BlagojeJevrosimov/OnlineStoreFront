@@ -15,7 +15,6 @@ const Login = (props) => {
   };
 
   const handleLogin = async () => {
-    console.log(process.env.REACT_APP_USER_API_URL);
     const success = await LoginUser(email, password);
     if (success) {
       props.handleLogin();
